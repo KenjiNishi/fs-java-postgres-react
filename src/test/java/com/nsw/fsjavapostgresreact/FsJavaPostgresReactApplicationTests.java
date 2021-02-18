@@ -1,10 +1,10 @@
-package com.nsw.postgresreact;
+package com.nsw.fsjavapostgresreact;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PostgresreactApplicationTests {
+class FsJavaPostgresReactApplicationTests {
 
 	@Test
 	void contextLoads() {
