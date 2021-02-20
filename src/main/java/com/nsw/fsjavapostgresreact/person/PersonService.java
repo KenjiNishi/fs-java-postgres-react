@@ -3,10 +3,12 @@ package com.nsw.fsjavapostgresreact.person.services;
 import com.nsw.fsjavapostgresreact.person.Person;
 import com.nsw.fsjavapostgresreact.person.repository.PersonRepository;
 
+import java.util.Objects;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PersonService {
@@ -31,5 +33,22 @@ public class PersonService {
 		boolean exists = personRepository.existsById(personId);
 		if(!exists){ throw new IllegalStateException("Person id does not exist: " + personId);}
 		personRepository.deleteById(personId);
+	}
+
+	@Transactional
+	public void updatePerson(Long personId, Person updated){
+		Person person = personRepository.findById(personId)
+			.orElseThrow(() -> new IllegalStateException("Person id does not exist: " + personId));
+
+			if (updated.getFirstName()!=null && updated.getFirstName().length()>0 &&
+					!Objects.equals(person.getFirstName(), updated.getFirstName()))
+				{
+				person.setFirstName(updated.getFirstName());
+				}
+			if (updated.getLastName()!=null && updated.getLastName().length()>0 &&
+					!Objects.equals(person.getLastName(), updated.getLastName()))
+				{
+				person.setLastName(updated.getLastName());
+				}
 	}
 }
