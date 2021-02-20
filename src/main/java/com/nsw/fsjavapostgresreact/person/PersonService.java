@@ -4,6 +4,7 @@ import com.nsw.fsjavapostgresreact.person.Person;
 import com.nsw.fsjavapostgresreact.person.repository.PersonRepository;
 
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,8 @@ public class PersonService {
 	}
 
 	public void addNewPerson(Person person){
+		Optional<Person> checkClone = personRepository.findDuplicatePerson(person.getFirstName(), person.getLastName());
+		if (checkClone.isPresent()) { throw new IllegalStateException("Person with same first and last name already exists!!!");}
 		personRepository.save(person);
 	}
 }
