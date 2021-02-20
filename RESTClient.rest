@@ -9,3 +9,6 @@ content-type: application/json
     "firstName": " sample ",
     "lastName": " person "
 }
+
+###
+DELETE http://localhost:8080/api/persons/1 HTTP/1.1

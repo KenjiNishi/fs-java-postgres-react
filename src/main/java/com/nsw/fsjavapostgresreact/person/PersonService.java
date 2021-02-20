@@ -26,4 +26,10 @@ public class PersonService {
 		if (checkClone.isPresent()) { throw new IllegalStateException("Person with same first and last name already exists!!!");}
 		personRepository.save(person);
 	}
+
+	public void  deletePerson(Long personId){
+		boolean exists = personRepository.existsById(personId);
+		if(!exists){ throw new IllegalStateException("Person id does not exist: " + personId);}
+		personRepository.deleteById(personId);
+	}
 }
