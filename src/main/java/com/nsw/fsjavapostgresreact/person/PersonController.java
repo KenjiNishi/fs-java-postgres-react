@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "api/person")
+@RequestMapping(path = "api/persons")
 public class PersonController {
     private final PersonService personService;
 
@@ -22,6 +22,12 @@ public class PersonController {
 	public List<Person> getPersons(){
 		return personService.getPersons();
 	}
+
+    @PostMapping
+    public void registerPerson(@RequestBody Person person){
+        personService.addNewPerson(person);
+
+    }
 
     
 }
