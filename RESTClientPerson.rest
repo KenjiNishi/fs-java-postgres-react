@@ -17,5 +17,6 @@ content-type: application/json
 
 {
     "firstName": "Will",
-    "lastName": "Admin"
+    "lastName": "Admin",
+    "loungeRoom":{"id":1}
 }

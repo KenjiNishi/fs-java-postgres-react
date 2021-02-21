@@ -1,14 +1,24 @@
 package com.nsw.fsjavapostgresreact.person;
 
+import com.nsw.fsjavapostgresreact.lounge.Lounge;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.PropertyGenerator.class, 
+  property = "id")
 public class Person {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="person_sequence")
@@ -17,6 +27,9 @@ public class Person {
 
     private String firstName;
     private String lastName; 
+    @ManyToOne
+    @JoinColumn(name = "lounge_id", referencedColumnName="ID")
+    private Lounge loungeRoom;
 
     protected Person(){}
 
@@ -41,6 +54,9 @@ public class Person {
     public String getLastName() {
         return lastName;
     }
+    public Lounge getLoungeRoom() {
+        return loungeRoom;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -52,6 +68,10 @@ public class Person {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+    
+    public void setLoungeRoom(Lounge loungeRoom) {
+        this.loungeRoom = loungeRoom;
     }
 
     @Override

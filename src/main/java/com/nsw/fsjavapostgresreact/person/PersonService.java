@@ -56,5 +56,10 @@ public class PersonService {
 				{
 				person.setLastName(updated.getLastName());
 				}
+			if (updated.getLoungeRoom()!=null &&
+				!Objects.equals(person.getLoungeRoom(), updated.getLoungeRoom()))
+			{
+			person.setLoungeRoom(updated.getLoungeRoom());
+			}
 	}
 }
