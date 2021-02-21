@@ -3,6 +3,7 @@ package com.nsw.fsjavapostgresreact.person;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,7 +11,8 @@ import javax.persistence.Table;
 @Table
 public class Person {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="person_sequence")
+    @SequenceGenerator(name="person_sequence", sequenceName="person_seq")
     private Long id;
 
     private String firstName;
