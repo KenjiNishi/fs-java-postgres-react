@@ -66,5 +66,10 @@ public class PersonService {
 				{
 				person.setEventRoom1(updated.getEventRoom1());
 				}
+			if (updated.getEventRoom2()!=null &&
+				!Objects.equals(person.getEventRoom2(), updated.getEventRoom2()))
+				{
+				person.setEventRoom2(updated.getEventRoom2());
+				}
 	}
 }

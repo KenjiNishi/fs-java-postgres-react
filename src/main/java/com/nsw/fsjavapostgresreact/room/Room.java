@@ -34,6 +34,8 @@ public class Room {
     private int capacity;
     @OneToMany(mappedBy = "eventRoom1")
     private List<Person> guestIds1;
+    @OneToMany(mappedBy = "eventRoom1")
+    private List<Person> guestIds2;
 
     public Room( String name, int capacity){
         this.name = name;

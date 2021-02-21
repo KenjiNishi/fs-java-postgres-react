@@ -32,8 +32,11 @@ public class Person {
     private Lounge loungeRoom;
 
     @ManyToOne
-    @JoinColumn(name = "roomid", referencedColumnName="id")
+    @JoinColumn(name = "room1id", referencedColumnName="id")
     private Room eventRoom1;
+    @ManyToOne
+    @JoinColumn(name = "room2id", referencedColumnName="id")
+    private Room eventRoom2;
 
     protected Person(){}
 
@@ -64,24 +67,27 @@ public class Person {
     public Room getEventRoom1() {
         return eventRoom1;
     }
+    public Room getEventRoom2() {
+        return eventRoom2;
+    }
 
     public void setId(Long id) {
         this.id = id;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    
     public void setLoungeRoom(Lounge loungeRoom) {
         this.loungeRoom = loungeRoom;
     }
     public void setEventRoom1(Room room){
         this.eventRoom1 = room;
+    }
+    public void setEventRoom2(Room room){
+        this.eventRoom2 = room;
     }
 
     @Override
@@ -90,6 +96,9 @@ public class Person {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", loungeRoom='" + loungeRoom + '\'' +
+                ", eventRoom1='" + eventRoom1 + '\'' +
+                ", eventRoom2='" + eventRoom2 + '\'' +
                 '}';
     }
 }
