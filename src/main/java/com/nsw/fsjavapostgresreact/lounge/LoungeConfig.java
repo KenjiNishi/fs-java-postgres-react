@@ -13,13 +13,13 @@ public class LoungeConfig {
     @Bean
     CommandLineRunner LoungeCommandLineRunner(LoungeRepository repository){
         return args -> {
-            // Lounge one = new Lounge(
-            //     "Lounge 1"
-            // );
-            // Lounge two = new Lounge(
-            //     "Better Lounge"
-            // );
-            // repository.saveAll(List.of(one, two));
+            Lounge one = new Lounge(
+                "Lounge 1"
+            );
+            Lounge two = new Lounge(
+                "Better Lounge"
+            );
+            repository.saveAll(List.of(one, two));
         };
     };
 }
