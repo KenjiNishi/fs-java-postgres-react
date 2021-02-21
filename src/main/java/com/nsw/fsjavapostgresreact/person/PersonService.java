@@ -58,8 +58,13 @@ public class PersonService {
 				}
 			if (updated.getLoungeRoom()!=null &&
 				!Objects.equals(person.getLoungeRoom(), updated.getLoungeRoom()))
-			{
-			person.setLoungeRoom(updated.getLoungeRoom());
-			}
+				{
+				person.setLoungeRoom(updated.getLoungeRoom());
+				}
+			if (updated.getEventRoom1()!=null &&
+				!Objects.equals(person.getEventRoom1(), updated.getEventRoom1()))
+				{
+				person.setEventRoom1(updated.getEventRoom1());
+				}
 	}
 }

@@ -1,6 +1,7 @@
 package com.nsw.fsjavapostgresreact.person;
 
 import com.nsw.fsjavapostgresreact.lounge.Lounge;
+import com.nsw.fsjavapostgresreact.room.Room;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -28,8 +28,12 @@ public class Person {
     private String firstName;
     private String lastName; 
     @ManyToOne
-    @JoinColumn(name = "lounge_id", referencedColumnName="ID")
+    @JoinColumn(name = "lounge_id", referencedColumnName="id")
     private Lounge loungeRoom;
+
+    @ManyToOne
+    @JoinColumn(name = "roomid", referencedColumnName="id")
+    private Room eventRoom1;
 
     protected Person(){}
 
@@ -57,6 +61,9 @@ public class Person {
     public Lounge getLoungeRoom() {
         return loungeRoom;
     }
+    public Room getEventRoom1() {
+        return eventRoom1;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -72,6 +79,9 @@ public class Person {
     
     public void setLoungeRoom(Lounge loungeRoom) {
         this.loungeRoom = loungeRoom;
+    }
+    public void setEventRoom1(Room room){
+        this.eventRoom1 = room;
     }
 
     @Override

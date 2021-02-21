@@ -18,5 +18,6 @@ content-type: application/json
 {
     "firstName": "Will",
     "lastName": "Admin",
-    "loungeRoom":{"id":1}
+    "loungeRoom":{"id":1},
+    "eventRoom1":{"id":1}
 }
