@@ -17,6 +17,10 @@ public class PersonController {
         this.personService = personService;
     }
 
+    @GetMapping(path = "{personId}")
+    public Person getPerson(@PathVariable("personId") Long personId){
+        return personService.getPerson(personId);
+    }
 
     @GetMapping
 	public List<Person> getPersons(){
@@ -36,7 +40,7 @@ public class PersonController {
                 personService.updatePerson(personId, personData);
             }
 
-    @DeleteMapping(path="{personI d}")
+    @DeleteMapping(path="{personId}")
     public void deletePerson(@PathVariable("personId") Long personId){
         personService.deletePerson(personId);
     }

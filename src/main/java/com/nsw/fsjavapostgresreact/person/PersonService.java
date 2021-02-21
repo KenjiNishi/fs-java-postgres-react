@@ -23,6 +23,12 @@ public class PersonService {
 		return personRepository.findAll();
 	}
 
+	public Person getPerson(Long personId){
+		Person person = personRepository.findById(personId)
+			.orElseThrow(() -> new IllegalStateException("Person id does not exist: " + personId));
+		return person;
+	}
+
 	public void addNewPerson(Person person){
 		Optional<Person> checkClone = personRepository.findDuplicatePerson(person.getFirstName(), person.getLastName());
 		if (checkClone.isPresent()) { throw new IllegalStateException("Person with same first and last name already exists!!!");}
