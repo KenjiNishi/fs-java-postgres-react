@@ -1,8 +1,8 @@
-GET http://localhost:8080/api/persons HTTP/1.1
+GET http://localhost:8080/api/person/all HTTP/1.1
 ###
-GET http://localhost:8080/api/persons/1 HTTP/1.1
+GET http://localhost:8080/api/person/id/1 HTTP/1.1
 ###
-POST http://localhost:8080/api/persons HTTP/1.1
+POST http://localhost:8080/api/person/save HTTP/1.1
 content-type: application/json
 
 {
@@ -10,9 +10,9 @@ content-type: application/json
     "lastName": " person "
 }
 ###
-DELETE http://localhost:8080/api/persons/1 HTTP/1.1
+DELETE http://localhost:8080/api/person/delete/2 HTTP/1.1
 ###
-PUT http://localhost:8080/api/persons/1 HTTP/1.1
+PUT http://localhost:8080/api/person/update/1 HTTP/1.1
 content-type: application/json
 
 {

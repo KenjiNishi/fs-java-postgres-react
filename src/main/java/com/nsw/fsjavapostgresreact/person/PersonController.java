@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "api/persons")
+@RequestMapping(path = "api/person")
 public class PersonController {
     private final PersonService personService;
 
@@ -17,30 +17,30 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @GetMapping(path = "{personId}")
+    @GetMapping(path = "/id/{personId}")
     public Person getPerson(@PathVariable("personId") Long personId){
         return personService.getPerson(personId);
     }
 
-    @GetMapping
+    @GetMapping("/all")
 	public List<Person> getPersons(){
 		return personService.getPersons();
 	}
 
-    @PostMapping
+    @PostMapping("/save")
     public void registerPerson(@RequestBody Person person){
         personService.addNewPerson(person);
 
     }
 
-    @PutMapping(path = "{personId}")
+    @PutMapping(path = "/update/{personId}")
     public void registerPerson(
             @PathVariable("personId") Long personId,
             @RequestBody Person personData){
                 personService.updatePerson(personId, personData);
             }
 
-    @DeleteMapping(path="{personId}")
+    @DeleteMapping(path="/delete/{personId}")
     public void deletePerson(@PathVariable("personId") Long personId){
         personService.deletePerson(personId);
     }
