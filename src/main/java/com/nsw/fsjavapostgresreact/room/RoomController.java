@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "api/rooms")
+@RequestMapping(path = "api/room")
 public class RoomController {
     private final RoomService roomService;
 
@@ -17,30 +17,30 @@ public class RoomController {
         this.roomService = roomService;
     }
 
-    @GetMapping(path = "{roomId}")
+    @GetMapping(path = "/id/{roomId}")
     public Room getRoom(@PathVariable("roomId") Long roomId){
         return roomService.getRoom(roomId);
     }
 
-    @GetMapping
+    @GetMapping("/all")
 	public List<Room> getRooms(){
 		return roomService.getRooms();
 	}
 
-    @PostMapping
+    @PostMapping("/save")
     public void registerRoom(@RequestBody Room room){
         roomService.addNewRoom(room);
 
     }
 
-    @PutMapping(path = "{roomId}")
+    @PutMapping(path = "/update/{roomId}")
     public void registerRoom(
             @PathVariable("roomId") Long roomId,
             @RequestBody Room roomData){
                 roomService.updateRoom(roomId, roomData);
             }
 
-    @DeleteMapping(path="{roomId}")
+    @DeleteMapping(path="/delete/{roomId}")
     public void deleteRoom(@PathVariable("roomId") Long roomId){
         roomService.deleteRoom(roomId);
     }

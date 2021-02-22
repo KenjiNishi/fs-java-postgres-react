@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "api/lounges")
+@RequestMapping(path = "api/lounge")
 public class LoungeController {
     private final LoungeService loungeService;
 
@@ -17,30 +17,30 @@ public class LoungeController {
         this.loungeService = loungeService;
     }
 
-    @GetMapping(path = "{loungeId}")
+    @GetMapping(path = "/id/{loungeId}")
     public Lounge getLounge(@PathVariable("loungeId") Long loungeId){
         return loungeService.getLounge(loungeId);
     }
 
-    @GetMapping
+    @GetMapping("/all")
 	public List<Lounge> getLounges(){
 		return loungeService.getLounges();
 	}
 
-    @PostMapping
+    @PostMapping("/save")
     public void registerLounge(@RequestBody Lounge lounge){
         loungeService.addNewLounge(lounge);
 
     }
 
-    @PutMapping(path = "{loungeId}")
+    @PutMapping(path = "/update/{loungeId}")
     public void registerLounge(
             @PathVariable("loungeId") Long loungeId,
             @RequestBody Lounge loungeData){
                 loungeService.updateLounge(loungeId, loungeData);
             }
 
-    @DeleteMapping(path="{loungeId}")
+    @DeleteMapping(path="/delete/{loungeId}")
     public void deleteLounge(@PathVariable("loungeId") Long loungeId){
         loungeService.deleteLounge(loungeId);
     }

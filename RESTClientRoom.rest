@@ -1,8 +1,4 @@
-GET http://localhost:8080/api/rooms HTTP/1.1
-###
-GET http://localhost:8080/api/rooms/1 HTTP/1.1
-###
-POST http://localhost:8080/api/rooms HTTP/1.1
+POST http://localhost:8080/api/room/save HTTP/1.1
 content-type: application/json
 
 {
@@ -10,11 +6,16 @@ content-type: application/json
     "capacity": 100
 }
 ###
-DELETE http://localhost:8080/api/rooms/1 HTTP/1.1
+GET http://localhost:8080/api/room/all HTTP/1.1
 ###
-PUT http://localhost:8080/api/rooms/2 HTTP/1.1
+GET http://localhost:8080/api/room/id/2 HTTP/1.1
+###
+PUT http://localhost:8080/api/room/update/2 HTTP/1.1
 content-type: application/json
 
 {
     "name": "Totally not the same"
 }
+###
+DELETE http://localhost:8080/api/room/delete/1 HTTP/1.1
+###

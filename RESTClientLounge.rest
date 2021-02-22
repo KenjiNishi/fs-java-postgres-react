@@ -1,19 +1,20 @@
-GET http://localhost:8080/api/lounges HTTP/1.1
-###
-GET http://localhost:8080/api/lounges/1 HTTP/1.1
-###
-POST http://localhost:8080/api/lounges HTTP/1.1
+POST http://localhost:8080/api/lounge/save HTTP/1.1
 content-type: application/json
 
 {
     "name": "New Lounge"
 }
 ###
-DELETE http://localhost:8080/api/lounges/1 HTTP/1.1
+GET http://localhost:8080/api/lounge/all HTTP/1.1
 ###
-PUT http://localhost:8080/api/lounges/2 HTTP/1.1
+GET http://localhost:8080/api/lounge/id/1 HTTP/1.1
+###
+PUT http://localhost:8080/api/lounge/update/2 HTTP/1.1
 content-type: application/json
 
 {
     "name": "Totally not the same"
 }
+###
+DELETE http://localhost:8080/api/lounge/delete/1 HTTP/1.1
+###
