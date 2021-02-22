@@ -11,4 +11,6 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
     
     @Query("SELECT s FROM Person s WHERE s.firstName=?1 AND s.lastName=?2")
     Optional<Person> findDuplicatePerson(String firstName, String lastName);
+
+    Optional<Person> findByFirstName(String firstName);
 }
