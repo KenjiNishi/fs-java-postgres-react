@@ -1,7 +1,7 @@
-package com.nsw.fsjavapostgresreact.room.services;
+package com.nsw.fsjavapostgresreact.services;
 
-import com.nsw.fsjavapostgresreact.room.Room;
-import com.nsw.fsjavapostgresreact.room.repository.RoomRepository;
+import com.nsw.fsjavapostgresreact.models.Room;
+import com.nsw.fsjavapostgresreact.repositories.RoomRepository;
 
 import java.util.Objects;
 import java.util.List;

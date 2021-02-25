@@ -1,7 +1,7 @@
 package com.nsw.fsjavapostgresreact;
 
-import com.nsw.fsjavapostgresreact.person.Person;
-import com.nsw.fsjavapostgresreact.person.repository.PersonRepository;
+import com.nsw.fsjavapostgresreact.models.Person;
+import com.nsw.fsjavapostgresreact.repositories.PersonRepository;
 
 import org.junit.jupiter.api.Assertions;    
 import org.junit.jupiter.api.Test;

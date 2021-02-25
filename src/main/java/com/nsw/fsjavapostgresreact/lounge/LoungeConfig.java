@@ -1,7 +1,7 @@
-package com.nsw.fsjavapostgresreact.lounge;
+package com.nsw.fsjavapostgresreact.models;
 
-import com.nsw.fsjavapostgresreact.lounge.repository.LoungeRepository;
-import com.nsw.fsjavapostgresreact.lounge.Lounge;
+import com.nsw.fsjavapostgresreact.repositories.LoungeRepository;
+import com.nsw.fsjavapostgresreact.models.Lounge;
 
 import java.util.List;
 import org.springframework.boot.CommandLineRunner;

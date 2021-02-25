@@ -1,7 +1,7 @@
-package com.nsw.fsjavapostgresreact.room.controllers;
+package com.nsw.fsjavapostgresreact.controllers;
 
-import com.nsw.fsjavapostgresreact.room.Room;
-import com.nsw.fsjavapostgresreact.room.services.RoomService;
+import com.nsw.fsjavapostgresreact.models.Room;
+import com.nsw.fsjavapostgresreact.services.RoomService;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

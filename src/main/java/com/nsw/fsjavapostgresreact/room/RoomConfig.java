@@ -1,7 +1,7 @@
 package com.nsw.fsjavapostgresreact.room;
 
-import com.nsw.fsjavapostgresreact.room.repository.RoomRepository;
-import com.nsw.fsjavapostgresreact.room.Room;
+import com.nsw.fsjavapostgresreact.repositories.RoomRepository;
+import com.nsw.fsjavapostgresreact.models.Room;
 
 import java.util.List;
 import org.springframework.boot.CommandLineRunner;

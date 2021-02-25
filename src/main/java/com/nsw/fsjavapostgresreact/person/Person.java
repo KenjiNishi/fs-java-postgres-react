@@ -1,7 +1,7 @@
-package com.nsw.fsjavapostgresreact.person;
+package com.nsw.fsjavapostgresreact.models;
 
-import com.nsw.fsjavapostgresreact.lounge.Lounge;
-import com.nsw.fsjavapostgresreact.room.Room;
+import com.nsw.fsjavapostgresreact.models.Lounge;
+import com.nsw.fsjavapostgresreact.models.Room;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

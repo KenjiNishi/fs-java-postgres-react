@@ -1,5 +1,5 @@
-package com.nsw.fsjavapostgresreact.person.repository;
-import com.nsw.fsjavapostgresreact.person.Person;
+package com.nsw.fsjavapostgresreact.repositories;
+import com.nsw.fsjavapostgresreact.models.Person;
 
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;

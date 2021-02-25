@@ -1,7 +1,7 @@
 package com.nsw.fsjavapostgresreact;
 
-import com.nsw.fsjavapostgresreact.room.Room;
-import com.nsw.fsjavapostgresreact.room.repository.RoomRepository;
+import com.nsw.fsjavapostgresreact.models.Room;
+import com.nsw.fsjavapostgresreact.repositories.RoomRepository;
 
 import org.junit.jupiter.api.Assertions;    
 import org.junit.jupiter.api.Test;

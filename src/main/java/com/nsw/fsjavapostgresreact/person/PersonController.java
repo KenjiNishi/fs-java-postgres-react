@@ -1,7 +1,7 @@
-package com.nsw.fsjavapostgresreact.person.controllers;
+package com.nsw.fsjavapostgresreact.controllers;
 
-import com.nsw.fsjavapostgresreact.person.Person;
-import com.nsw.fsjavapostgresreact.person.services.PersonService;
+import com.nsw.fsjavapostgresreact.models.Person;
+import com.nsw.fsjavapostgresreact.services.PersonService;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

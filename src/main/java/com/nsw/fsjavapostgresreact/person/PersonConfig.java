@@ -1,7 +1,7 @@
 package com.nsw.fsjavapostgresreact.person;
 
-import com.nsw.fsjavapostgresreact.person.repository.PersonRepository;
-import com.nsw.fsjavapostgresreact.person.Person;
+import com.nsw.fsjavapostgresreact.repositories.PersonRepository;
+import com.nsw.fsjavapostgresreact.models.Person;
 
 import java.util.List;
 import org.springframework.boot.CommandLineRunner;

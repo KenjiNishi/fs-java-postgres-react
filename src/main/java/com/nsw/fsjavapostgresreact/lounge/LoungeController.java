@@ -1,7 +1,7 @@
-package com.nsw.fsjavapostgresreact.lounge.controllers;
+package com.nsw.fsjavapostgresreact.controllers;
 
-import com.nsw.fsjavapostgresreact.lounge.Lounge;
-import com.nsw.fsjavapostgresreact.lounge.services.LoungeService;
+import com.nsw.fsjavapostgresreact.models.Lounge;
+import com.nsw.fsjavapostgresreact.services.LoungeService;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

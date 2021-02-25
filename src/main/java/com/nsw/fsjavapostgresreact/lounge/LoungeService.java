@@ -1,7 +1,7 @@
-package com.nsw.fsjavapostgresreact.lounge.services;
+package com.nsw.fsjavapostgresreact.services;
 
-import com.nsw.fsjavapostgresreact.lounge.Lounge;
-import com.nsw.fsjavapostgresreact.lounge.repository.LoungeRepository;
+import com.nsw.fsjavapostgresreact.models.Lounge;
+import com.nsw.fsjavapostgresreact.repositories.LoungeRepository;
 
 import java.util.Objects;
 import java.util.List;

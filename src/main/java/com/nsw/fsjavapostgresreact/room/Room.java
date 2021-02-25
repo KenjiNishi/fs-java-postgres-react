@@ -1,6 +1,6 @@
-package com.nsw.fsjavapostgresreact.room;
+package com.nsw.fsjavapostgresreact.models;
 
-import com.nsw.fsjavapostgresreact.person.Person;
+import com.nsw.fsjavapostgresreact.models.Person;
 
 import java.util.List;
 import javax.persistence.Entity;

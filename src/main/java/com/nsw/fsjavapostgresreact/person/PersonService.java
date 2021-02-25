@@ -1,7 +1,7 @@
-package com.nsw.fsjavapostgresreact.person.services;
+package com.nsw.fsjavapostgresreact.services;
 
-import com.nsw.fsjavapostgresreact.person.Person;
-import com.nsw.fsjavapostgresreact.person.repository.PersonRepository;
+import com.nsw.fsjavapostgresreact.models.Person;
+import com.nsw.fsjavapostgresreact.repositories.PersonRepository;
 
 import java.util.Objects;
 import java.util.List;

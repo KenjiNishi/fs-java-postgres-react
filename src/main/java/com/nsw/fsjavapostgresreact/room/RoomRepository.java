@@ -1,5 +1,5 @@
-package com.nsw.fsjavapostgresreact.room.repository;
-import com.nsw.fsjavapostgresreact.room.Room;
+package com.nsw.fsjavapostgresreact.repositories;
+import com.nsw.fsjavapostgresreact.models.Room;
 
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
