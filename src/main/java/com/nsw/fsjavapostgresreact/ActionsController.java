@@ -27,28 +27,40 @@ public class ActionsController {
         this.loungeService = loungeService;
     }
 
+    public int ERIndex = 0;
+    public int LRIndex = 0;
+    public boolean eventRoomSet = false;
+    public boolean loungeSet = false;
+    public int maxRoomCap = 99999999;
+
     @GetMapping(path = "/organizeAtendees")
     public void organizeAtendees(){
         List<Person> atendees = personService.getPersons();
         List<Room> eventRooms = roomService.getRooms();
         List<Lounge> loungeRooms = loungeService.getLounges();
 
-        int maxRoomCap = eventRooms.get(0).getCapacity();
         for(Room eventRoom : eventRooms) {
-            if (eventRoom.getCapacity() < maxRoomCap){
-                maxRoomCap = eventRoom.getCapacity();
+            if (eventRoom.getCapacity() < this.maxRoomCap){
+                this.maxRoomCap = eventRoom.getCapacity();
             }
         };
-
-        boolean loungeSet = false;
-        boolean eventRoomSet = false;
-        int currentEROccupation = 0;
-        int currentLROccupation = 0;
+        this.maxRoomCap +=1;
 
         atendees.forEach(person ->{
-            loungeRooms.forEach(lounge ->{
-                int ee= 1;
-             });
+            Person updated = person.setLoungeRoom(loungeRooms.get(this.LRIndex));
+            personService.updatePerson(person.getId(), updated);
+            this.LRIndex += 1;
+            if(this.LRIndex == loungeRooms.size()){this.LRIndex=0;}
+            
+
+            // for(int r = 0; r < eventRooms.size(); r++) {
+            //     Room eventRoom = eventRooms.get(r);
+            //     if (this.eventRoomSet){break;}
+            //     else if(eventRoom.getCurrentOccupation1() < this.ERIndex){
+            //         this.eventRoomSet = true;
+            //         this.ERIndex = this.ERIndex + 1;
+            //     };
+            //  };
          });
         
     }
