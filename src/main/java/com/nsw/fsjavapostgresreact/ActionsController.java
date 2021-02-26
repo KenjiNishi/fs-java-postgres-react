@@ -17,14 +17,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RequestMapping(path = "api/actions")
 public class ActionsController {
     private final PersonService personService;
+    private final RoomService roomService;
+    private final LoungeService loungeService;
 
     @Autowired
-    public ActionsController(PersonService personService) {
+    public ActionsController(PersonService personService, RoomService roomService, LoungeService loungeService) {
         this.personService = personService;
+        this.roomService = roomService;
+        this.loungeService = loungeService;
     }
 
     @GetMapping(path = "/organizeAtendees")
     public void organizeAtendees(){
-        boolean we = true;
+        List<Person> atendees = personService.getPersons();
+        List<Room> eventRooms = roomService.getRooms();
+        List<Lounge> loungeRooms = loungeService.getLounges();
+
+        int maxRoomCap = eventRooms.get(0).getCapacity();
+        for(Room eventRoom : eventRooms) {
+            if (eventRoom.getCapacity() < maxRoomCap){
+                maxRoomCap = eventRoom.getCapacity();
+            }
+        };
+
+        boolean loungeSet = false;
+        boolean eventRoomSet = false;
+        int currentEROccupation = 0;
+        int currentLROccupation = 0;
+
+        atendees.forEach(person ->{
+            loungeRooms.forEach(lounge ->{
+                int ee= 1;
+             });
+         });
+        
     }
 }

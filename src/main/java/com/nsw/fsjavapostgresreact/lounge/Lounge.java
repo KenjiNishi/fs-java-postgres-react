@@ -10,6 +10,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.OneToMany;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -38,8 +39,13 @@ public class Lounge {
     @OneToMany(mappedBy = "loungeRoom")
     private List<Person> guestIds;
 
+    @Transient
+    private int currentOccupation;
+
     public Lounge( String name){
         this.name = name;
     }
 
+    public int getCurrentOccupation(){return guestIds.size();}
+    public void setCurrentOccupation(int oc){ this.currentOccupation = oc;}
 }
