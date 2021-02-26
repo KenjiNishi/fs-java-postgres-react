@@ -4,8 +4,8 @@ POST http://localhost:8080/api/person/save HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "sample",
-    "lastName": " person"
+    "firstName": " sample ",
+    "lastName": " persona "
 }
 ###
 GET http://localhost:8080/api/person/all HTTP/1.1

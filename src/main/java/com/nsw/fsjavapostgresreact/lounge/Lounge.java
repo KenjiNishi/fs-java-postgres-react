@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,9 +28,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIdentityInfo(
-  generator = ObjectIdGenerators.PropertyGenerator.class, 
-  property = "id")
+// @JsonIdentityInfo(
+//   generator = ObjectIdGenerators.PropertyGenerator.class, 
+//   property = "id")
 public class Lounge {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="lounge_sequence")
@@ -37,6 +38,7 @@ public class Lounge {
     private Long id;
     private String name;
     @OneToMany(mappedBy = "loungeRoom")
+    @JsonBackReference
     private List<Person> guestIds;
 
     @Transient

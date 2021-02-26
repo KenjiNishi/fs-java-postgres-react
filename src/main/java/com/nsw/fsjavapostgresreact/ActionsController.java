@@ -27,10 +27,8 @@ public class ActionsController {
         this.loungeService = loungeService;
     }
 
-    public int ERIndex = 0;
     public int LRIndex = 0;
     public boolean eventRoomSet = false;
-    public boolean loungeSet = false;
     public int maxRoomCap = 99999999;
 
     @GetMapping(path = "/organizeAtendees")
@@ -47,12 +45,11 @@ public class ActionsController {
         this.maxRoomCap +=1;
 
         atendees.forEach(person ->{
-            Person updated = person.setLoungeRoom(loungeRooms.get(this.LRIndex));
-            personService.updatePerson(person.getId(), updated);
+            person.setLoungeRoom(loungeRooms.get(this.LRIndex));
+            personService.updatePerson(person.getId(), person);
             this.LRIndex += 1;
             if(this.LRIndex == loungeRooms.size()){this.LRIndex=0;}
             
-
             // for(int r = 0; r < eventRooms.size(); r++) {
             //     Room eventRoom = eventRooms.get(r);
             //     if (this.eventRoomSet){break;}
@@ -62,6 +59,7 @@ public class ActionsController {
             //     };
             //  };
          });
+         
         
     }
 }

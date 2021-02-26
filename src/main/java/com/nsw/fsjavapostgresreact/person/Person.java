@@ -13,12 +13,13 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table
-@JsonIdentityInfo(
-  generator = ObjectIdGenerators.PropertyGenerator.class, 
-  property = "id")
+// @JsonIdentityInfo(
+//     generator = ObjectIdGenerators.PropertyGenerator.class,
+//     property = "id")
 public class Person {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="person_sequence")
@@ -29,6 +30,7 @@ public class Person {
     private String lastName; 
     @ManyToOne
     @JoinColumn(name = "lounge_id", referencedColumnName="id")
+    //@JsonManagedReference
     private Lounge loungeRoom;
 
     @ManyToOne
@@ -53,11 +55,9 @@ public class Person {
     public Long getId(){
         return id;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public String getLastName() {
         return lastName;
     }
