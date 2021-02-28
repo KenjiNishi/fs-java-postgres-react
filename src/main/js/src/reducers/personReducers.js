@@ -2,7 +2,7 @@ import { FETCH_PERSONS, CREATE_PERSON, DELETE_PERSON, EDIT_PERSON, GET_PERSON } 
 
 const initialState = {
   personsList: [],
-  selectedItem: {}
+  selectedPerson: {}
 };
 
 export default function(state = initialState, action) {
@@ -16,7 +16,7 @@ export default function(state = initialState, action) {
     case GET_PERSON:
       return {
         ...state,
-        selectedItem: action.payload
+        selectedPerson: action.payload
       };
 
     case CREATE_PERSON:

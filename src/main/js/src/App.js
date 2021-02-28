@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
+import personDetailed from "./components/person-detailed";
 
 import store from './store';
 
@@ -15,6 +16,7 @@ export class App extends Component {
                     <div>
                         <Navbar/>
                         <Route path="/" exact component={Dashboard} />
+                        <Route path="/detailPerson/:id" exact component={personDetailed} />
                     </div>
                 </Router>
             </Provider>

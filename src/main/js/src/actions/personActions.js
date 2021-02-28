@@ -17,9 +17,7 @@ export const createPerson = personData => dispatch => {
 };
 
 export const fetchPersons = () => dispatch => {
-  console.log('fetching')
-  fetch('api/person/all' , {
-    method: 'GET'})
+  fetch('api/person/all' , {method: 'GET'})
     .then(res => res.json())
     .then(persons =>
       {
@@ -32,15 +30,20 @@ export const fetchPersons = () => dispatch => {
 };
 
 export const getPerson = (id) => dispatch => {
-  fetch('api/person/id/'+id , {
-    method: 'GET'})
-    .then(res => res.json())
-    .then(person =>
-      dispatch({
-        type: GET_PERSON,
-        payload: person.DATA
-      })
-    )
+  console.log("g")
+  fetch('http://localhost:8080/api/person/id/'+id , {
+    mode: 'cors',
+    method: 'GET',
+    headers: {'content-type': 'application/json'}
+  })
+  .then(res => res.json())
+  .then(person =>{
+    console.log(person)
+    dispatch({
+      type: GET_PERSON,
+      payload: person
+    })
+  })
 };
 
 export const editPerson = (id, changes) => dispatch => {

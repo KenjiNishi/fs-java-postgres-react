@@ -14,7 +14,7 @@ const PersonItem = props => (
             props.deletePerson(props.person.id)
           }}>Delete</button> 
           
-          <Link to={"/"+props.person.id} onClick={() => {}}> <button>Details</button></Link> 
+          <Link to={"/detailPerson/"+props.person.id} onClick={() => {}}> <button>Details</button></Link> 
       </p>
     </td>
   </tr>
