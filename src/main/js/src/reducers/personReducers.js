@@ -1,4 +1,4 @@
-import { FETCH_PERSONS, CREATE_PERSON, DELETE_PERSON, EDIT_PERSON, GET_PERSON } from '../actions/types';
+import { FETCH_PERSONS, CREATE_PERSON, DELETE_PERSON, EDIT_PERSON, GET_PERSON, CLEAR_PERSON } from '../actions/types';
 
 const initialState = {
   personsList: [],
@@ -17,6 +17,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         selectedPerson: action.payload
+      };
+    
+    case CLEAR_PERSON:
+      return {
+        ...state,
+        selectedPerson: null
       };
 
     case CREATE_PERSON:

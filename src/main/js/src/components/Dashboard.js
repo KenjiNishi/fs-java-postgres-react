@@ -7,6 +7,7 @@ import RoomForm from './room-create-form';
 import LoungeList from './lounge-list-all';
 import RoomList from './room-list-all';
 import Organizer from './Organizer';
+import SearchBars from './SearchBars';
 
 export default class Dashboard extends Component {
   render() {
@@ -14,6 +15,8 @@ export default class Dashboard extends Component {
         <div>
             <br/>
             <Organizer/>
+            <br/>
+            <SearchBars/>
             <br/>
             <PersonForm/>
             <PersonsList/>

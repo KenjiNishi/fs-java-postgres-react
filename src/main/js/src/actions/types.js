@@ -19,3 +19,8 @@ export const DELETE_ROOM = 'DELETE_ROOM';
 export const ORGANIZED_EVENT = 'ORGANIZED_EVENT';
 export const ORGANIZING_EVENT = 'OGANIZING_EVENT';
 
+export const CLEAR_ROOM = 'CLEAR_ROOM';
+export const CLEAR_LOUNGE = 'CLEAR_LOUNGE';
+export const CLEAR_PERSON = 'CLEAR_PERSON';
+
+

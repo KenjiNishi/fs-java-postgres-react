@@ -18,11 +18,28 @@ class Organizer extends Component {
   }
 
   render() {
-    return (
-      <div className='container'>
-        <button type="button" className="btn btn-warning" onClick={this.onClick}>Organize Event</button>
-      </div>
-    );
+      if (this.props.loading){
+          return(
+            <div className='container'>
+                <button 
+                    type="button" 
+                    className="btn btn-warning btn-lg btn-block" 
+                    onClick={this.onClick}
+                    disabled
+                >Organize Event</button>
+            </div>)
+      }
+    else{
+        return (
+            <div className='container'>
+                <button 
+                    type="button"
+                    className="btn btn-warning btn-lg btn-block"
+                    onClick={this.onClick}
+                >Organize Event</button>
+            </div>
+         );
+    }
   }
 }
 

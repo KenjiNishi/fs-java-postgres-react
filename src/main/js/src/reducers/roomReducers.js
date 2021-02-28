@@ -1,4 +1,4 @@
-import { FETCH_ROOMS, CREATE_ROOM, DELETE_ROOM, EDIT_ROOM, GET_ROOM } from '../actions/types';
+import { FETCH_ROOMS, CREATE_ROOM, DELETE_ROOM, EDIT_ROOM, GET_ROOM, CLEAR_ROOM } from '../actions/types';
 
 const initialState = {
   roomsList: [],
@@ -17,6 +17,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         selectedRoom: action.payload
+      };
+    
+    case CLEAR_ROOM:
+      return {
+        ...state,
+        selectedRoom: null
       };
 
     case CREATE_ROOM:

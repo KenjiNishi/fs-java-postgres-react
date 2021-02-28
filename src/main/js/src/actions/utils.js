@@ -1,4 +1,4 @@
-import { ORGANIZED_EVENT, ORGANIZING_EVENT } from './types';
+import { ORGANIZED_EVENT, ORGANIZING_EVENT, CLEAR_LOUNGE, CLEAR_PERSON, CLEAR_ROOM } from './types';
 
 import { fetchRooms} from './roomActions';
 import { fetchLounges} from './loungeActions';
@@ -20,6 +20,11 @@ export const OrganizeEvent = () => dispatch => {
         dispatch(fetchRooms())
         dispatch(fetchPersons())
         dispatch(fetchLounges())
-        console.log('updated?')
     })
+};
+
+export const ClearSearches = () => dispatch => {
+    dispatch({type: CLEAR_LOUNGE})
+    dispatch({type: CLEAR_PERSON})
+    dispatch({type: CLEAR_ROOM})
 };
