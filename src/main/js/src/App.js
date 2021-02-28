@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Dashboard from "./components/Dashboard";
+import Navbar from "./components/Navbar";
 
 import store from './store';
 
@@ -11,10 +13,8 @@ export class App extends Component {
             <Provider store={store}>
                 <Router>
                     <div>
-                        <div>
-                            <h1>We Did It</h1>
-                        </div>
-                        {/* <Route path="/" exact component={} /> */}
+                        <Navbar/>
+                        <Route path="/" exact component={Dashboard} />
                     </div>
                 </Router>
             </Provider>
