@@ -58,31 +58,37 @@ public class ActionsController {
             {
                 // Lounge Rooms
                 person.setLoungeRoom(loungeRooms.get(this.LRIndex));
-                personService.updatePerson(person.getId(), person);
                 this.LRIndex += 1;
                 if(this.LRIndex >= loungeRooms.size()){this.LRIndex=0;}
                 
-                // Event Rooms
+                // Setting EventRoom1
                 Room room = eventRooms.get(this.ERIndex);
                 person.setEventRoom1(room);
-
                 this.ERIndex += 1;
                 if(this.ERIndex >= eventRooms.size()){this.ERIndex=0;}
 
-                // Half the people will change rooms after the coffe break
-                if (this.personCount%2==0){
-                    person.setEventRoom2(room);
-                }
-                else{
-                    person.setEventRoom2(eventRooms.get(this.ERIndex));
-                }
-
-                // Save
                 personService.updatePerson(person.getId(), person);
             }
             this.personCount += 1;
         });
-         
-        
+
+        //Setting EventRoom2
+        // Half the people on each room will change to the next indexed room after coffe break
+        List<Room> updatedEventRooms = roomService.getRooms();
+        for(int uR = 0; uR < updatedEventRooms.size(); uR++){
+            List<Person> guests = updatedEventRooms.get(uR).getGuestIds1();
+            for(int g = 0; g < guests.size(); g++){
+                if(g%2==0){
+                    guests.get(g).setEventRoom2(updatedEventRooms.get(uR));
+                }
+                else{
+                    if((uR+1)>=updatedEventRooms.size()){
+                        guests.get(g).setEventRoom2(updatedEventRooms.get(0));
+                    }
+                    else{guests.get(g).setEventRoom2(updatedEventRooms.get(uR+1));}
+                }
+                personService.updatePerson(guests.get(g).getId(), guests.get(g));
+            }
+        }
     }
 }
