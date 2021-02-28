@@ -27,11 +27,11 @@ public class ActionsController {
         this.loungeService = loungeService;
     }
 
+    // Auxiliary variables
     public int LRIndex = 0;
     public int ERIndex = 0;
     public int personCount = 0;
-
-    public int maxRoomCap = 99999999;
+    public int maxRoomCap = 0;
 
     @GetMapping(path = "/organizeAtendees")
     public void organizeAtendees(){
@@ -39,17 +39,19 @@ public class ActionsController {
         List<Room> eventRooms = roomService.getRooms();
         List<Lounge> loungeRooms = loungeService.getLounges();
 
+        // Calculate maximum room capacity based on lowest capacity room.
         for(Room eventRoom : eventRooms) {
+            if (this.maxRoomCap==0){this.maxRoomCap = eventRoom.getCapacity();}
             if (eventRoom.getCapacity() < this.maxRoomCap){
                 this.maxRoomCap = eventRoom.getCapacity();
             }
         };
         //this.maxRoomCap +=1;
-        if(this.maxRoomCap*eventRooms.size() < atendees.size()){
-            throw new IllegalStateException(
-                "Too many people to adhere to distribution requirements. Reduce atendees list!"
-            );
-        }
+        // if(this.maxRoomCap*eventRooms.size() < atendees.size()){
+        //     throw new IllegalStateException(
+        //         "Too many people to adhere to distribution requirements. Reduce atendees list!"
+        //     );
+        // }
 
         atendees.forEach(person ->{
             if (this.personCount<this.maxRoomCap)
@@ -67,8 +69,8 @@ public class ActionsController {
                 this.ERIndex += 1;
                 if(this.ERIndex >= eventRooms.size()){this.ERIndex=0;}
 
+                // Half the people will change rooms after the coffe break
                 if (this.personCount%2==0){
-                    // Remain on same room
                     person.setEventRoom2(room);
                 }
                 else{
