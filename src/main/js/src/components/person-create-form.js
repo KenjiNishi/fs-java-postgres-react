@@ -37,7 +37,7 @@ class PersonForm extends Component {
         <h3>Register new atendee:</h3>
         <form action='' onSubmit={this.onSubmit} id="personForm">
             <div className='row'>
-                <div className='col'>
+                <div className='col-sm-12 col-md-6'>
                     <label>Name: </label><br/>
                     <input
                     type="text"
@@ -46,7 +46,7 @@ class PersonForm extends Component {
                     value={this.state.firstName}
                     />
                 </div>
-                <div className='col'>
+                <div className='col-sm-12 col-md-6'>
                     <label>Surname: </label><br/>
                     <input
                     type="text"

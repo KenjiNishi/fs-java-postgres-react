@@ -43,7 +43,7 @@ class PersonsList extends Component {
     return (
       <div className='container'>
         <div className='row'>
-          <div className='col-sm-12 col-md-6'>
+          <div className='col-sm-12'>
             <br/>
             <h3>Registered to attend :</h3>
             <table className="table">
