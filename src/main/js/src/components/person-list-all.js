@@ -11,7 +11,7 @@ const PersonItem = props => (
     <td>{props.person.lastName}</td>
     <td>
       <p> <button onClick={() => { 
-            props.deletePerson(props.person.id); props.fetchPersons()
+            props.deletePerson(props.person.id)
           }}>Delete</button> 
           
           <Link to={"/"+props.person.id} onClick={() => {}}> <button>Details</button></Link> 
@@ -59,7 +59,7 @@ class PersonsList extends Component {
       </div>
     )}
     else{
-        return(<div/>)
+        return(<div className='container'><h2>The person list is empty.</h2></div>)
     }
   }
 }

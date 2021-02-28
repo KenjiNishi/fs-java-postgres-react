@@ -8,12 +8,16 @@ export const createPerson = personData => dispatch => {
     },
     body: JSON.stringify(personData)
   })
-    dispatch({
-      type: CREATE_PERSON
-    })
+    .then(() => 
+      dispatch({
+        type: CREATE_PERSON
+      })
+    )
+    .then(()=>dispatch(fetchPersons()))
 };
 
 export const fetchPersons = () => dispatch => {
+  console.log('fetching')
   fetch('api/person/all' , {
     method: 'GET'})
     .then(res => res.json())
@@ -49,10 +53,13 @@ export const editPerson = (id, changes) => dispatch => {
   })
     .then(res => res.json())
     .then(res =>
-      dispatch({
-        type: EDIT_PERSON,
-        payload: res
-      })
+      {
+        dispatch({
+          type: EDIT_PERSON,
+          payload: res
+        })
+        dispatch(fetchPersons())
+      }
     );
 };
 
@@ -63,4 +70,11 @@ export const deletePerson = id => dispatch => {
         'content-type': 'application/json'
       }
     })
+    .then(res =>
+      { 
+        dispatch({
+          type: DELETE_PERSON
+        })
+        dispatch(fetchPersons())
+      });
   };
