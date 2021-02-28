@@ -5,7 +5,10 @@ import { getLounge } from '../actions/loungeActions';
 import { fetchPersons } from '../actions/personActions';
 
 const GuestItem = props => (
-  <p>{props.person.id}: {props.person.firstName} {props.person.lastName} </p>
+  <tr>
+    <td scope="row">{props.person.id}</td>
+    <td>{props.person.firstName} {props.person.lastName}</td>
+  </tr>
 )
 
 class LoungeDetailed extends Component {
@@ -22,16 +25,26 @@ class LoungeDetailed extends Component {
       if (filteredGuests.length > 0){
         return (
           <div>
-            {filteredGuests.map(currentperson => {
-              return <GuestItem person={currentperson} key={currentperson.id}/>;
-            })}
+            <table className="table">
+              <thead className="thead-light">
+                <tr >
+                  <th scope="col-2">Id</th>
+                  <th scope="col-10">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredGuests.map(currentperson => {
+                    return <GuestItem person={currentperson} key={currentperson.id}/>;
+                })}
+              </tbody>
+            </table> 
           </div>
         )
       }
       else{
         return(
           <div>
-            <p>No guests</p>
+            
           </div>
         )
       }
@@ -46,7 +59,7 @@ class LoungeDetailed extends Component {
                 <h3>ID: {this.props.lounge.id}</h3>
                 <h3>Name: {this.props.lounge.name}</h3>
                 <br />
-                <h4>Guests: {this.props.lounge.currentOccupation}</h4>
+                <h4>Atendees: {this.props.lounge.currentOccupation}</h4>
                 {this.guestList()}
                 <br />
             </div>

@@ -51,7 +51,7 @@ class LoungesList extends Component {
                 <tr >
                   <th scope="col-2">Id</th>
                   <th scope="col-4">Name</th>
-                  <th scope="col-4">Guests</th>
+                  <th scope="col-4">Atendees</th>
                   <th scope="col-2">Actions</th>
                 </tr>
               </thead>

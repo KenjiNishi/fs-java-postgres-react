@@ -54,8 +54,8 @@ class RoomsList extends Component {
                   <th scope="col-2">Id</th>
                   <th scope="col-4">Name</th>
                   <th scope="col-2">Capacity</th>
-                  <th scope="col-1">Stage 1 Guests</th>
-                  <th scope="col-1">Stage 2 Guests</th>
+                  <th scope="col-1">Stage 1 Atendees</th>
+                  <th scope="col-1">Stage 2 Atendees</th>
                   <th scope="col-2">Actions</th>
                 </tr>
               </thead>
