@@ -6,7 +6,7 @@ import { fetchPersons, deletePerson } from '../actions/personActions';
 
 const PersonItem = props => (
   <tr>
-    <td>{props.person.id}</td>
+    <td scope="row">{props.person.id}</td>
     <td>{props.person.firstName}</td>
     <td>{props.person.lastName}</td>
     <td>
@@ -42,20 +42,25 @@ class PersonsList extends Component {
     if(this.props.persons.length>0){
     return (
       <div className='container'>
-        <h3>Registered to attend:</h3>
-        <table className="tabela1">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Surname</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            { this.personList() }
-          </tbody>
-        </table>
+        <div className='row'>
+          <div className='col-sm-12 col-md-6'>
+            <br/>
+            <h3>Registered to attend :</h3>
+            <table className="table">
+              <thead className="thead-dark">
+                <tr >
+                  <th scope="col-2">Id</th>
+                  <th scope="col-4">Name</th>
+                  <th scope="col-4">Surname</th>
+                  <th scope="col-2">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                { this.personList() }
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     )}
     else{

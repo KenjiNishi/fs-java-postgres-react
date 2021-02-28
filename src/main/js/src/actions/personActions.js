@@ -30,7 +30,6 @@ export const fetchPersons = () => dispatch => {
 };
 
 export const getPerson = (id) => dispatch => {
-  console.log("g")
   fetch('http://localhost:8080/api/person/id/'+id , {
     mode: 'cors',
     method: 'GET',
@@ -38,7 +37,6 @@ export const getPerson = (id) => dispatch => {
   })
   .then(res => res.json())
   .then(person =>{
-    console.log(person)
     dispatch({
       type: GET_PERSON,
       payload: person
