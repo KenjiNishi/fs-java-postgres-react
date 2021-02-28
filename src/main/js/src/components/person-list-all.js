@@ -9,6 +9,7 @@ const PersonItem = props => (
     <td scope="row">{props.person.id}</td>
     <td>{props.person.firstName}</td>
     <td>{props.person.lastName}</td>
+    <td>{(props.person.loungeRoom && props.person.eventRoom2)? "Allocated" : "Not Allocated"}</td>
     <td>
       <p> <button onClick={() => { 
             props.deletePerson(props.person.id)
@@ -52,6 +53,7 @@ class PersonsList extends Component {
                   <th scope="col-2">Id</th>
                   <th scope="col-4">Name</th>
                   <th scope="col-4">Surname</th>
+                  <th scope="col-4">Status</th>
                   <th scope="col-2">Actions</th>
                 </tr>
               </thead>
