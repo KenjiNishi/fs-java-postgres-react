@@ -20,6 +20,8 @@ class LoungeForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    if(this.state.name.length==0){
+      return false}
 
     const lounge = {
       name: this.state.name

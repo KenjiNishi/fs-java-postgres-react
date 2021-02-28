@@ -21,6 +21,8 @@ class PersonForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    if(this.state.firstName.length==0 || this.state.lastName.length==0){
+      return false}
 
     const person = {
       firstName: this.state.firstName,

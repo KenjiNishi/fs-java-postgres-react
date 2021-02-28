@@ -21,6 +21,8 @@ class RoomForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    if(this.state.name.length==0){
+      return false}
 
     const room = {
       name: this.state.name,
@@ -28,7 +30,7 @@ class RoomForm extends Component {
     };
 
     this.props.createRoom(room);
-    this.setState({name: ' ', capacity: 0})
+    this.setState({name: '', capacity: 0})
   }
 
   render() {
