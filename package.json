@@ -4,7 +4,7 @@
   "description": "Fullstack webapp using postgres database with Java and ReactJs",
   "main": "index.js",
   "scripts": {
-      "watch": "webpack --mode development --entry ./src/main/js/App.js -o ./target/classes/static/built/"
+      "watch": "webpack --mode development --watch --entry ./src/main/js/src/App.js -o ./target/classes/static/built/"
   },
   "repository": {
     "type": "git",
