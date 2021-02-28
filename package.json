@@ -1,5 +1,5 @@
 {
-  "name": "fs-java-postgres-react",
+  "name": "fsjavapostgresreact",
   "version": "1.0.0",
   "description": "Fullstack webapp using postgres database with Java and ReactJs",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KenjiNishi/fs-java-postgres-react.git"
+    "url": "git+https://github.com/KenjiNishi/fsjavapostgresreact.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/KenjiNishi/fs-java-postgres-react/issues"
+    "url": "https://github.com/KenjiNishi/fsjavapostgresreact/issues"
   },
-  "homepage": "https://github.com/KenjiNishi/fs-java-postgres-react#readme",
+  "homepage": "https://github.com/KenjiNishi/fsjavapostgresreact#readme",
   "devDependencies": {
     "@babel/core": "^7.13.1",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
