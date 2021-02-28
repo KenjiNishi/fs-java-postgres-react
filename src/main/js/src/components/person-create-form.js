@@ -34,13 +34,13 @@ class PersonForm extends Component {
   render() {
     return (
       <div className='container'>
-        <h3>Register new atendee:</h3>
+        <h3>Register new Atendee:</h3>
         <form action='' onSubmit={this.onSubmit} id="personForm">
             <div className='row'>
                 <div className='col-sm-12 col-md-6'>
                     <label>Name: </label><br/>
                     <input
-                    type="text"
+                    type="text" minLength='3'
                     name="firstName"
                     onChange={this.onChange}
                     value={this.state.firstName}
@@ -49,7 +49,7 @@ class PersonForm extends Component {
                 <div className='col-sm-12 col-md-6'>
                     <label>Surname: </label><br/>
                     <input
-                    type="text"
+                    type="text" minLength='3'
                     name="lastName"
                     onChange={this.onChange}
                     value={this.state.lastName}
