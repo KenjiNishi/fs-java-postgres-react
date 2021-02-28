@@ -6,11 +6,15 @@ import LoungeForm from './lounge-create-form';
 import RoomForm from './room-create-form';
 import LoungeList from './lounge-list-all';
 import RoomList from './room-list-all';
+import Organizer from './Organizer';
 
 export default class Dashboard extends Component {
   render() {
     return (
         <div>
+            <br/>
+            <Organizer/>
+            <br/>
             <PersonForm/>
             <PersonsList/>
             <br/>

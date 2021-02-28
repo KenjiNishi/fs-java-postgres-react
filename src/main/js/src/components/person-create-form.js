@@ -59,7 +59,7 @@ class PersonForm extends Component {
                 </div> 
           </div>
           <br/>
-          <button type="submit">Register</button>
+          <button className="btn btn-secondary" type="submit">Register</button>
         </form>
       </div>
     );

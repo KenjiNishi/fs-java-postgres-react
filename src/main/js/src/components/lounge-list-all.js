@@ -10,11 +10,11 @@ const LoungeItem = props => (
     <td>{props.lounge.name}</td>
     <td>{props.lounge.currentOccupation}</td>
     <td>
-      <p> <button onClick={() => { 
+      <p> <button className="btn btn-danger" onClick={() => { 
             props.deleteLounge(props.lounge.id)
           }}>Delete</button> 
           
-          <Link to={"/detailLounge/"+props.lounge.id} onClick={() => {}}> <button>Details</button></Link> 
+          <Link to={"/detailLounge/"+props.lounge.id} onClick={() => {}}> <button className="btn btn-info">Details</button></Link> 
       </p>
     </td>
   </tr>

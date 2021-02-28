@@ -11,11 +11,11 @@ const PersonItem = props => (
     <td>{props.person.lastName}</td>
     <td>{(props.person.loungeRoom && props.person.eventRoom2)? "Allocated" : "Not Allocated"}</td>
     <td>
-      <p> <button onClick={() => { 
+      <p> <button className="btn btn-danger" onClick={() => { 
             props.deletePerson(props.person.id)
           }}>Delete</button> 
           
-          <Link to={"/detailPerson/"+props.person.id} onClick={() => {}}> <button>Details</button></Link> 
+          <Link to={"/detailPerson/"+props.person.id} onClick={() => {}}> <button className="btn btn-info">Details</button></Link> 
       </p>
     </td>
   </tr>

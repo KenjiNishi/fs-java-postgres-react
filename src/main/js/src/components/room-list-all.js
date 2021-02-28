@@ -12,11 +12,11 @@ const RoomItem = props => (
     <td>{props.room.currentOccupation1}</td>
     <td>{props.room.currentOccupation2}</td>
     <td>
-      <p> <button onClick={() => { 
+      <p> <button className="btn btn-danger" onClick={() => { 
             props.deleteRoom(props.room.id)
           }}>Delete</button> 
           
-          <Link to={"/detailRoom/"+props.room.id} onClick={() => {}}> <button>Details</button></Link> 
+          <Link to={"/detailRoom/"+props.room.id} onClick={() => {}}> <button className="btn btn-info">Details</button></Link> 
       </p>
     </td>
   </tr>
