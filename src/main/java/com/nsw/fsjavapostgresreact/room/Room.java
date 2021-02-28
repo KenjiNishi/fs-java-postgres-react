@@ -41,7 +41,7 @@ public class Room {
     @OneToMany(mappedBy = "eventRoom1")
     @JsonIgnore
     private List<Person> guestIds1;
-    @OneToMany(mappedBy = "eventRoom1")
+    @OneToMany(mappedBy = "eventRoom2")
     @JsonIgnore
     private List<Person> guestIds2;
 
@@ -56,7 +56,7 @@ public class Room {
     }
 
     public int getCurrentOccupation1(){return guestIds1.size();}
-    public void setCurrentOccupation1(int oc){ this.currentOccupation1 = oc;}
+    //public void setCurrentOccupation1(int oc){ this.currentOccupation1 = oc;}
     public int getCurrentOccupation2(){return guestIds2.size();}
-    public void setCurrentOccupation2(int oc){ this.currentOccupation2 = oc;}
+    //public void setCurrentOccupation2(int oc){ this.currentOccupation2 = oc;}
 }

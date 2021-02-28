@@ -6,6 +6,7 @@ import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
 import PersonDetailed from "./components/person-detailed";
 import LoungeDetailed from "./components/lounge-detailed";
+import RoomDetailed from "./components/room-detailed";
 
 import store from './store';
 
@@ -19,6 +20,7 @@ export class App extends Component {
                         <Route path="/" exact component={Dashboard} />
                         <Route path="/detailPerson/:id" exact component={PersonDetailed} />
                         <Route path="/detailLounge/:id" exact component={LoungeDetailed} />
+                        <Route path="/detailRoom/:id" exact component={RoomDetailed} />
                     </div>
                 </Router>
             </Provider>
