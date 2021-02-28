@@ -9,15 +9,12 @@ const PersonItem = props => (
     <td>{props.person.id}</td>
     <td>{props.person.firstName}</td>
     <td>{props.person.lastName}</td>
-    <td>{props.person.eventRoom1? props.person.eventRoom1.name : "Not allocated"}</td>
-    <td>{props.person.loungeRoom? props.person.loungeRoom.name : "Not allocated"}</td>
-    <td>{props.person.eventRoom2? props.person.eventRoom2.name : "Not allocated"}</td>
     <td>
       <p> <button onClick={() => { 
             props.deletePerson(props.person.id); props.fetchPersons()
-          }}>Deletar</button> 
+          }}>Delete</button> 
           
-          <Link to={"/"+props.person.id} onClick={() => {}}> <button>Detalhes</button></Link> 
+          <Link to={"/"+props.person.id} onClick={() => {}}> <button>Details</button></Link> 
       </p>
     </td>
   </tr>
@@ -41,20 +38,17 @@ class PersonsList extends Component {
     })
   }
 
-
   render() {
+    if(this.props.persons.length>0){
     return (
       <div className='container'>
-        <h3>Produtos registrados:</h3>
+        <h3>Registered to attend:</h3>
         <table className="tabela1">
           <thead>
             <tr>
               <th>Id</th>
               <th>Name</th>
               <th>Surname</th>
-              <th>Stage 1</th>
-              <th>Coffee Break</th>
-              <th>Stage 2</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -63,7 +57,10 @@ class PersonsList extends Component {
           </tbody>
         </table>
       </div>
-    )
+    )}
+    else{
+        return(<div/>)
+    }
   }
 }
 
