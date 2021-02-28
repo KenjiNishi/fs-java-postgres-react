@@ -37,6 +37,67 @@ NodeJS Dependencies:
 1. ```yarn transpile``` to build React FrontEnd;
 2. ```./mvnw test``` for JUnit Unit Testing;
 3. ```./mvnw spring-boot:run``` for Starting the Server;
+4. Access http://localhost:8080/
+
+# Project description
+
+A company is going to provide training for a client. 
+
+The training has 2 stages where atendees will be split between Event Rooms with variable capacity. 
+
+There will be 2 Coffee Breaks in distinct Lounge Rooms.
+
+Backend requirements:
+
+    - Register Atendees using first and last name;
+    - Register Event Rooms using name and capacity;
+    - Register Lounge Rooms using name;
+    
+    The difference of Atendees in each Event Room must not exceed 1. Half the people in each Event Room will change to another Event Room after the Coffe Break.
+
+    When consulting an Atendee, return the Event Rooms for each Stage and Lounge Room for the Coffe Breaks;
+
+    When consulting a Event Room or Lounge Room, return a list of people that will attend the training/break in each room.
+
+
+Frontend requirements:
+
+    - Register Atendees with first and last name;
+    - Register Event Rooms with name and capacity;
+    - Register Lounge Rooms with name;
+    - Consult Atendees info;
+    - Consult Rooms info;
+
+# Solution
+
+## API
+For manual testing of the API there are .rest files that contain use cases;
+
+Endpoint | Description
+---------|----------
+ /api/lounge/save | Saves a single Lounge in the Database
+ /api/lounge/all  | Get a list of all Lounges
+ /api/lounge/id/:id | Get a single Lounge
+ /api/lounge/update/:id | Update Lounge info
+ /api/lounge/delete/:id | Delete Lounge
+ /api/room/save  | Saves a single Room in the Database
+ /api/room/all | Get a list of all Rooms
+ /api/room/id/:id  | Get a single Room
+ /api/room/update/:id | Update Room info
+ /api/room/delete/:id | Delete Room
+ /api/person/save  | Saves a single Person in the Database
+ /api/person/all | Get a list of all Persons
+ /api/person/id/:id  | Get a single Person
+ /api/person/update/:id | Update Person info
+ /api/person/delete/:id | Delete Person
+ /api/actions/organizeAtendees | Distributes Atendees to Event Rooms and Lounge Rooms
+ ## Considerations
+
+ * Each atendee will be in the same Lounge Room for both coffee breaks;
+  
+ * Atendees can only be distributed amongst rooms if there are at least 1 EventRoom, 1 LoungeRoom and 1 Person registered (otherwise the button will be disabled).
+  
+ * If the user chooses to delete a EventRoom or LoungeRoom after Distributing Atendees, all the atendees registered for said room will also be deleted. This happens because of the Relational properties of the postgresSQL database;
 
 
 
