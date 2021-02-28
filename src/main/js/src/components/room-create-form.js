@@ -35,7 +35,7 @@ class RoomForm extends Component {
 
   render() {
     return (
-      <div className='container'>
+      <div className='container mx-auto'>
         <h3>Register new Event Room:</h3>
         <form action='' onSubmit={this.onSubmit} id="roomForm">
             <div className='row'>

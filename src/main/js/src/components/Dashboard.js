@@ -12,21 +12,36 @@ import SearchBars from './SearchBars';
 export default class Dashboard extends Component {
   render() {
     return (
-        <div>
-            <br/>
+        <div className='container-fluid'>
+          <div className='row mt-3'>
             <Organizer/>
-            <br/>
+          </div>
+          <div className='row mt-2'>
             <SearchBars/>
-            <br/>
-            <PersonForm/>
-            <PersonsList/>
-            <br/>
-            <LoungeForm/>
-            <LoungeList/>
-            <br/>
+          </div>
+
+          <div className='row mt-4'>
             <RoomForm/>
+          </div>
+
+          <div className='row mt-3'>
             <RoomList/>
-            <br/>
+          </div>
+
+          <div className='row mt-4'>
+            <LoungeForm/>
+          </div>
+          <div className='row mt-2'>
+            <LoungeList/>
+          </div>
+
+          <div className='row mt-4'>
+            <PersonForm/>
+          </div>
+
+          <div className='row mt-2'>
+            <PersonsList/>
+          </div>
         </div>
     );
   }

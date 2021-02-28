@@ -26,6 +26,7 @@ class SearchBar extends Component {
                         <form className="form-inline">
                             <input
                             className="mx-auto"
+                            placeholder="id"
                             type="search"
                             name="personId"
                             onChange={this.onChange}
@@ -35,7 +36,7 @@ class SearchBar extends Component {
                             <Link
                                 to={"/detailPerson/"+this.state.personId}
                                 className="btn btn-secondary mt-2 mx-auto"
-                            >Search Atendee</Link>
+                            > Search in Atendees List </Link>
                         </form>
                     </div>
 
@@ -43,6 +44,7 @@ class SearchBar extends Component {
                         <form className="form-inline ">
                             <input
                             className="mx-auto"
+                            placeholder="id"
                             type="search"
                             name="loungeId"
                             onChange={this.onChange}
@@ -58,6 +60,7 @@ class SearchBar extends Component {
                         <form className="form-inline">
                             <input
                             className="mx-auto"
+                            placeholder="id"
                             type="search"
                             name="roomId"
                             onChange={this.onChange}
