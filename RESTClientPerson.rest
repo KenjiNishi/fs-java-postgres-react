@@ -5,7 +5,7 @@ content-type: application/json
 
 {
     "firstName": " sample ",
-    "lastName": " persona "
+    "lastName": " personas "
 }
 ###
 GET http://localhost:8080/api/person/all HTTP/1.1
