@@ -17,7 +17,7 @@ class PersonDetailed extends Component {
                 <h3>Name: {this.props.person.firstName} {this.props.person.lastName}</h3>
                 <br />
                 <h4>Room 1: {this.props.person.eventRoom1 ? this.props.person.eventRoom1.name : "Not allocated." }</h4>
-                <h4>Coffe break: {this.props.person.loungeRoom ? this.props.person.loungeRoom.name : "Not allocated." }</h4>
+                <h4>Coffe breaks: {this.props.person.loungeRoom ? this.props.person.loungeRoom.name : "Not allocated." }</h4>
                 <h4>Room 2: {this.props.person.eventRoom2 ? this.props.person.eventRoom2.name : "Not allocated." }</h4>
                 <br />
             </div>

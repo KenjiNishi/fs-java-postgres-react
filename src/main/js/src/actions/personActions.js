@@ -1,7 +1,7 @@
 import { FETCH_PERSONS,CREATE_PERSON, DELETE_PERSON, EDIT_PERSON, GET_PERSON } from './types';
 
 export const createPerson = personData => dispatch => {
-  fetch('api/person/save', {
+  fetch('/api/person/save', {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
@@ -17,7 +17,7 @@ export const createPerson = personData => dispatch => {
 };
 
 export const fetchPersons = () => dispatch => {
-  fetch('api/person/all' , {method: 'GET'})
+  fetch('/api/person/all' , {method: 'GET'})
     .then(res => res.json())
     .then(persons =>
       {
@@ -30,7 +30,7 @@ export const fetchPersons = () => dispatch => {
 };
 
 export const getPerson = (id) => dispatch => {
-  fetch('http://localhost:8080/api/person/id/'+id , {
+  fetch('/api/person/id/'+id , {
     mode: 'cors',
     method: 'GET',
     headers: {'content-type': 'application/json'}
@@ -45,7 +45,7 @@ export const getPerson = (id) => dispatch => {
 };
 
 export const editPerson = (id, changes) => dispatch => {
-  fetch('api/person/update/'+id, {
+  fetch('/api/person/update/'+id, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json'
@@ -65,7 +65,7 @@ export const editPerson = (id, changes) => dispatch => {
 };
 
 export const deletePerson = id => dispatch => {
-    fetch('api/person/delete/'+id, {
+    fetch('/api/person/delete/'+id, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json'

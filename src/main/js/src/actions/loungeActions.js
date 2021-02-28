@@ -17,7 +17,7 @@ export const createLounge = loungeData => dispatch => {
 };
 
 export const fetchLounges = () => dispatch => {
-  fetch('api/lounge/all' , {method: 'GET'})
+  fetch('/api/lounge/all' , {method: 'GET'})
     .then(res => res.json())
     .then(lounges =>
       {
@@ -30,7 +30,7 @@ export const fetchLounges = () => dispatch => {
 };
 
 export const getLounge = (id) => dispatch => {
-  fetch('http://localhost:8080/api/lounge/id/'+id , {
+  fetch('/api/lounge/id/'+id , {
     mode: 'cors',
     method: 'GET',
     headers: {'content-type': 'application/json'}
@@ -45,7 +45,7 @@ export const getLounge = (id) => dispatch => {
 };
 
 export const editLounge = (id, changes) => dispatch => {
-  fetch('api/lounge/update/'+id, {
+  fetch('/api/lounge/update/'+id, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json'
@@ -65,7 +65,7 @@ export const editLounge = (id, changes) => dispatch => {
 };
 
 export const deleteLounge = id => dispatch => {
-    fetch('api/lounge/delete/'+id, {
+    fetch('/api/lounge/delete/'+id, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json'

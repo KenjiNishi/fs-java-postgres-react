@@ -1,7 +1,7 @@
 import { FETCH_ROOMS,CREATE_ROOM, DELETE_ROOM, EDIT_ROOM, GET_ROOM } from './types';
 
 export const createRoom = roomData => dispatch => {
-  fetch('api/room/save', {
+  fetch('/api/room/save', {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
@@ -17,7 +17,7 @@ export const createRoom = roomData => dispatch => {
 };
 
 export const fetchRooms = () => dispatch => {
-  fetch('api/room/all' , {method: 'GET'})
+  fetch('/api/room/all' , {method: 'GET'})
     .then(res => res.json())
     .then(rooms =>
       {
@@ -30,7 +30,7 @@ export const fetchRooms = () => dispatch => {
 };
 
 export const getRoom = (id) => dispatch => {
-  fetch('http://localhost:8080/api/room/id/'+id , {
+  fetch('/api/room/id/'+id , {
     mode: 'cors',
     method: 'GET',
     headers: {'content-type': 'application/json'}
@@ -45,7 +45,7 @@ export const getRoom = (id) => dispatch => {
 };
 
 export const editRoom = (id, changes) => dispatch => {
-  fetch('api/room/update/'+id, {
+  fetch('/api/room/update/'+id, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json'
@@ -65,7 +65,7 @@ export const editRoom = (id, changes) => dispatch => {
 };
 
 export const deleteRoom = id => dispatch => {
-    fetch('api/room/delete/'+id, {
+    fetch('/api/room/delete/'+id, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json'
