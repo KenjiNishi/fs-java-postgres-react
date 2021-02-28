@@ -4,7 +4,8 @@
   "description": "Fullstack webapp using postgres database with Java and ReactJs",
   "main": "index.js",
   "scripts": {
-      "watch": "webpack --mode development --watch --entry ./src/main/js/src/App.js -o ./target/classes/static/built/"
+    "watch": "webpack --mode development --watch --entry ./src/main/js/src/App.js -o ./target/classes/static/built/",
+    "transpile": "webpack --mode development --entry ./src/main/js/src/App.js -o ./target/classes/static/built/"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,6 @@
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
-    "axios": "^0.21.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
