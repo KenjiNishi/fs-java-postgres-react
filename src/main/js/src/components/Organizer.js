@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { createPerson } from '../actions/personActions';
+import { OrganizeEvent } from '../actions/utils';
 
 class Organizer extends Component {
   constructor(props) {
@@ -14,15 +14,21 @@ class Organizer extends Component {
   }
 
   onClick(){
-    console.log('organizeeeee')
+    this.props.OrganizeEvent();
   }
 
   render() {
     return (
       <div className='container'>
-        <button type="button" className="btn btn-warning" onClick={this.onClick}>Organize atendees</button>
+        <button type="button" className="btn btn-warning" onClick={this.onClick}>Organize Event</button>
       </div>
     );
   }
 }
-export default connect(null, { createPerson})(Organizer);
+
+const mapStateToProps = state => (
+    {
+    loading: state.utils.loading
+  });
+
+export default connect(mapStateToProps, { OrganizeEvent })(Organizer);

@@ -16,3 +16,6 @@ export const GET_ROOM = 'GET_ROOM';
 export const EDIT_ROOM = 'EDIT_ROOM';
 export const DELETE_ROOM = 'DELETE_ROOM';
 
+export const ORGANIZED_EVENT = 'ORGANIZED_EVENT';
+export const ORGANIZING_EVENT = 'OGANIZING_EVENT';
+
