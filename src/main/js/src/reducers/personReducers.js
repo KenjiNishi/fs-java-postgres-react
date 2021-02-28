@@ -13,19 +13,13 @@ export default function(state = initialState, action) {
         personsList: action.payload
       };
     
-    case CREATE_PERSON:
-      const newList = personsList.push(action.payload);
-      return {
-        ...state,
-        personsList: newList
-      };
-    
     case GET_PERSON:
       return {
         ...state,
         selectedItem: action.payload
       };
 
+    case CREATE_PERSON:
     case DELETE_PERSON:
     case EDIT_PERSON:
     default:
