@@ -30,7 +30,7 @@ public class ActionsController {
     public int LRIndex = 0;
     public int ERIndex = 0;
     public int personCount = 0;
-    public boolean eventRoomSet = false;
+
     public int maxRoomCap = 99999999;
 
     @GetMapping(path = "/organizeAtendees")
@@ -52,41 +52,34 @@ public class ActionsController {
         }
 
         atendees.forEach(person ->{
-            // Lounge Rooms
             if (this.personCount<this.maxRoomCap)
             {
-            person.setLoungeRoom(loungeRooms.get(this.LRIndex));
-            personService.updatePerson(person.getId(), person);
-            this.LRIndex += 1;
-            if(this.LRIndex >= loungeRooms.size()){this.LRIndex=0;}
-            
-            // Event Rooms
-            Room room = eventRooms.get(this.ERIndex);
-            person.setEventRoom1(room);
+                // Lounge Rooms
+                person.setLoungeRoom(loungeRooms.get(this.LRIndex));
+                personService.updatePerson(person.getId(), person);
+                this.LRIndex += 1;
+                if(this.LRIndex >= loungeRooms.size()){this.LRIndex=0;}
+                
+                // Event Rooms
+                Room room = eventRooms.get(this.ERIndex);
+                person.setEventRoom1(room);
 
-            this.ERIndex += 1;
-            if(this.ERIndex >= eventRooms.size()){this.ERIndex=0;}
+                this.ERIndex += 1;
+                if(this.ERIndex >= eventRooms.size()){this.ERIndex=0;}
 
-            if (this.personCount%2==0){
-                // Remain on same room
-                person.setLastName("remain");
-                person.setEventRoom2(room);
+                if (this.personCount%2==0){
+                    // Remain on same room
+                    person.setEventRoom2(room);
+                }
+                else{
+                    person.setEventRoom2(eventRooms.get(this.ERIndex));
+                }
+
+                // Save
+                personService.updatePerson(person.getId(), person);
             }
-            else{
-                person.setLastName("chang");
-                person.setEventRoom2(eventRooms.get(this.ERIndex));
-            }
-            personService.updatePerson(person.getId(), person);}
             this.personCount += 1;
-            // for(int r = 0; r < eventRooms.size(); r++) {
-            //     Room eventRoom = eventRooms.get(r);
-            //     if (this.eventRoomSet){break;}
-            //     else if(eventRoom.getCurrentOccupation1() < this.maxRoomCap){
-            //         this.eventRoomSet = true;
-            //         this.ERIndex = this.ERIndex + 1;
-            //     };
-            //  };
-         });
+        });
          
         
     }
