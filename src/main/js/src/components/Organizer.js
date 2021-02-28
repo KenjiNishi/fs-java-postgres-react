@@ -11,14 +11,23 @@ class Organizer extends Component {
     };
 
     this.onClick = this.onClick.bind(this);
+    this.checkLockConditions = this.checkLockConditions.bind(this);
   }
 
   onClick(){
     this.props.OrganizeEvent();
   }
 
+  checkLockConditions(){
+    if( this.props.persons.length > 0 &&
+        this.props.rooms.length > 0 &&
+        this.props.lounges.length > 0)
+      return false
+    else return true;
+  }
+
   render() {
-      if (this.props.loading){
+      if (this.checkLockConditions() || this.props.loading){
           return(
             <div className='container'>
                 <button 
@@ -45,7 +54,10 @@ class Organizer extends Component {
 
 const mapStateToProps = state => (
     {
-    loading: state.utils.loading
+    loading: state.utils.loading,
+    rooms : state.rooms.roomsList,
+    persons : state.persons.personsList,
+    lounges : state.lounges.loungesList
   });
 
 export default connect(mapStateToProps, { OrganizeEvent })(Organizer);

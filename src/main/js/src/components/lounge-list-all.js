@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { fetchLounges, deleteLounge } from '../actions/loungeActions';
+import { deletePerson } from '../actions/personActions';
 
 const LoungeItem = props => (
   <tr>
@@ -11,7 +12,11 @@ const LoungeItem = props => (
     <td>{props.lounge.currentOccupation}</td>
     <td>
       <p> <button className="btn btn-danger" onClick={() => { 
-            props.deleteLounge(props.lounge.id)
+            props.filteredGuests.map((at) => {
+              props.deletePerson(at.id)
+            })
+            console.log(props.filteredGuests)
+            setTimeout(() => { props.deleteLounge(props.lounge.id) }, 1000);
           }}>Delete</button> 
           
           <Link to={"/detailLounge/"+props.lounge.id} onClick={() => {}}> <button className="btn btn-info">Details</button></Link> 
@@ -34,7 +39,18 @@ class LoungesList extends Component {
 
   loungeList() {
     return this.props.lounges.map(currentlounge => {
-      return <LoungeItem lounge={currentlounge} deleteLounge={this.props.deleteLounge} fetchLounges={this.props.fetchLounges} key={currentlounge.id}/>;
+      let filteredGuests = this.props.guests.filter((guest) => {
+        if(!guest.loungeRoom){return false}
+        return((guest.loungeRoom.name === currentlounge.name))
+      })
+
+      return <LoungeItem 
+                lounge={currentlounge} 
+                deleteLounge={this.props.deleteLounge} 
+                deletePerson={this.props.deletePerson}
+                filteredGuests={filteredGuests}
+                key={currentlounge.id}
+              />;
     })
   }
 
@@ -71,7 +87,8 @@ class LoungesList extends Component {
 
 const mapStateToProps = state => (
   {
-  lounges: state.lounges.loungesList
+  lounges: state.lounges.loungesList,
+  guests: state.persons.personsList
 });
 
-export default connect(mapStateToProps, { fetchLounges, deleteLounge})(LoungesList);
+export default connect(mapStateToProps, { fetchLounges, deleteLounge, deletePerson})(LoungesList);
