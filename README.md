@@ -15,6 +15,7 @@ Spring Boot Dependencies:
 
 NodeJS Dependencies:
 
+    - Dev
     * "@babel/plugin-proposal-class-properties"
     * "@babel/preset-env"
     * "@babel/preset-react"
@@ -24,7 +25,7 @@ NodeJS Dependencies:
     * "webpack"
     * "webpack-cli"
    
-    - Global
+    - Required
     * "react"
     * "react-dom"
     * "react-redux"
