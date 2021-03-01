@@ -98,7 +98,8 @@ Endpoint | Description
  /api/person/delete/:id | Delete Person
  /api/actions/organizeAtendees | Distributes Atendees to Event Rooms and Lounge Rooms
  ## Considerations
-
+ * When starting the server, a few dummy objects will be created automatically to improve testability.
+ * The PostgresSQL is set to drop tables when the server is closed. This can be changed by altering the application.properties file to ```spring.jpa.hibernate.ddl-auto=create-drop = update```.
  * Each Atendee (Person) will be in the same Lounge Room for both coffee breaks, for this reason there is only 1 Lounge Field for each Atendee;
   
  * Room occupancy when Atendee Distribution happens is determined by the Event Room with the least capacity. While the server is processing the Distribution the button will be disabled;
