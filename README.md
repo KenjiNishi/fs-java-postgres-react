@@ -31,7 +31,6 @@ NodeJS Dependencies:
     * "react-redux"
     * "react-router-dom"
     * "redux"
-    * "redux-devtools-extension"
     * "redux-thunk"
 
 ## Running the project
