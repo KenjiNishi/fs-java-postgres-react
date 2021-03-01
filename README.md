@@ -54,11 +54,16 @@ Backend requirements:
     - Register Event Rooms using name and capacity;
     - Register Lounge Rooms using name;
     
-    The difference of Atendees in each Event Room must not exceed 1. Half the people in each Event Room will change to another Event Room after the Coffe Break.
+    The difference of Atendees in each Event Room must not exceed 1.
 
-    When consulting an Atendee, return the Event Rooms for each Stage and Lounge Room for the Coffe Breaks;
+    Half the people in each Event Room will change to Room after the Coffe Break.
 
-    When consulting a Event Room or Lounge Room, return a list of people that will attend the training/break in each room.
+    When looking for an Atendee return:    
+    - Event Rooms for each Stage 
+    - Lounge Room for the Coffe Breaks;
+
+    When consulting an Event or Lounge Room:
+    - Return a list of people that will attend the training/break in each room.
 
 
 Frontend requirements:
