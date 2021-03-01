@@ -34,18 +34,19 @@ NodeJS Dependencies:
     * "redux-thunk"
 
 ## Running the project
-1. ```yarn transpile``` to build React FrontEnd;
-2. ```./mvnw test``` for JUnit Unit Testing;
+1. ```yarn transpile``` to build React Frontend;
+2. ``` ./mvnw clean ``` for a clean Backend build
 3. ```./mvnw spring-boot:run``` for Starting the Server;
 4. Access http://localhost:8080/
+5.  ```./mvnw test``` for JUnit Unit Testing;
 
 # Project description
 
 A company is going to provide training for a client. 
 
-The training has 2 stages where atendees will be split between Event Rooms with variable capacity. 
+The training has 2 stages where atendees will be split among N Event Rooms with variable capacity. 
 
-There will be 2 Coffee Breaks in distinct Lounge Rooms.
+There will be 2 Coffee Breaks in M distinct Lounge Rooms.
 
 Backend requirements:
 
@@ -93,11 +94,15 @@ Endpoint | Description
  /api/actions/organizeAtendees | Distributes Atendees to Event Rooms and Lounge Rooms
  ## Considerations
 
- * Each atendee will be in the same Lounge Room for both coffee breaks;
+ * Each Atendee (Person) will be in the same Lounge Room for both coffee breaks, for this reason there is only 1 Lounge Field for each Atendee;
   
- * Atendees can only be distributed amongst rooms if there are at least 1 EventRoom, 1 LoungeRoom and 1 Person registered (otherwise the button will be disabled).
+ * Room occupancy when Atendee Distribution happens is determined by the Event Room with the least capacity. While the server is processing the Distribution the button will be disabled;
   
- * If the user chooses to delete a EventRoom or LoungeRoom after Distributing Atendees, all the atendees registered for said room will also be deleted. This happens because of the Relational properties of the postgresSQL database;
+ * Information will update automatically after small delay;
+  
+ * Atendees can only be distributed among rooms if there are at least 1 EventRoom, 1 LoungeRoom AND 1 Person registered (otherwise the button will be disabled);
+  
+ * If the user chooses to delete a EventRoom or LoungeRoom after Distributing Atendees, all the atendees registered for said room will also be deleted. This happens because of the Relational properties of the postgresSQL database.
 
 
 
