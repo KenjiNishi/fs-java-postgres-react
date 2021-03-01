@@ -11,9 +11,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,15 +19,11 @@ import lombok.NoArgsConstructor;
 // @Data - bundles @toString, @EqualsAndHashCode, @Getter/@Setter and @RequiredArgsConstructor.
 // @NoArgsConstructor provides the default construct 
 // @AllArgsConstructor bundles the non default constructor.
-
 @Entity
 @Table
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-// @JsonIdentityInfo(
-//   generator = ObjectIdGenerators.PropertyGenerator.class, 
-//   property = "id")
 public class Room {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="room_sequence")
@@ -56,7 +49,5 @@ public class Room {
     }
 
     public int getCurrentOccupation1(){return guestIds1.size();}
-    //public void setCurrentOccupation1(int oc){ this.currentOccupation1 = oc;}
     public int getCurrentOccupation2(){return guestIds2.size();}
-    //public void setCurrentOccupation2(int oc){ this.currentOccupation2 = oc;}
 }

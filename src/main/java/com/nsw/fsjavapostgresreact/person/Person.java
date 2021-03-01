@@ -13,7 +13,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table
@@ -30,7 +29,6 @@ public class Person {
     private String lastName; 
     @ManyToOne
     @JoinColumn(name = "lounge_id", referencedColumnName="id")
-    //@JsonManagedReference
     private Lounge loungeRoom;
 
     @ManyToOne
