@@ -110,6 +110,13 @@ Endpoint | Description
   
  * If the user chooses to delete a EventRoom or LoungeRoom after Distributing Atendees, all the atendees registered for said room will also be deleted. This happens because of the Relational properties of the postgresSQL database.
 
+## Screenshots
+
+![dashboard1](/etc/ss1.jpg)
+![dashboard2](/etc/ss2.jpg)
+![dashboard3](/etc/ss3.jpg)
+![details1](/etc/ss4.jpg)
+
 
 
 
